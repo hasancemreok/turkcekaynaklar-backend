@@ -85,7 +85,7 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-var server = app.listen(process.env.PORT || 8080, function () {
+var server = app.listen(8080, function () {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
