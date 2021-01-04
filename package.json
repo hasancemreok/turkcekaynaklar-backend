@@ -4,13 +4,17 @@
   "description": "Türkçe kaynaklar websitesi backend reposu",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
   },
   "repository": {
     "type": "git",
     "url": "turkcekaynaklar-backend"
   },
-  "author": "",
+  "author": "Hasan Cemre Ok",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
