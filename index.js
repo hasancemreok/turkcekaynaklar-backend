@@ -6,21 +6,15 @@ const admin = require('firebase-admin')
 admin.initializeApp();
 var db = admin.firestore();
 
-var app = express();
-var allowedDomains = ['https://turkcekaynaklar.netlify.app', 'http://localhost:3000'];
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
- 
-    if (allowedDomains.indexOf(origin) === -1) {
-      var msg = "Siteniz ${origin} üzerinden bu API'ye erişminiz yoktur.";
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}));
 
-app.use(bodyParser.json())
+var corsOptions = {
+  origin: 'https://turkcekaynaklar.netlify.app/',
+  optionsSuccessStatus: 200
+}
+
+var app = express();
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
 app.get('/api/topics', async (req, res) => {
   const topics = db.collection('topics');
